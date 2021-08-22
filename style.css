@@ -1,0 +1,36 @@
+body{
+  padding: 0;
+  margin: 0;
+  background: #FDEFEF;
+  color: #fff;
+  font-size: 1.5rem;
+}
+nav{
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #082032;
+  padding: 0 3rem;
+}
+button{
+  font-family: Satoshi;
+  font-weight: 500;
+  background: none;
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.main{
+  display: flex;
+  justify-content: center;
+}
+.el{
+  background: #3498db;
+  margin: 0 .1vw;
+}
+.targeted{
+  background: #FF4C29 !important;
+}
