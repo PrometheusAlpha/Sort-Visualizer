@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="style.css">
   <script src="scripts/index.js" type="module"></script>
   <link rel="icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,11 +20,19 @@
     <div>
       <label for="num_of_cols">Array Size</label>
       <input type="range" id="num_of_cols" name="volume" min="10" max="100">
-    </div>
-    <div>
       <label for="speed">Speed</label>
       <input type="range" id="speed" name="volume" min="20" max="80" value="40">
     </div>
+    <form action="">
+      <input type="radio" name="algorithm" id="bubble" checked="true">
+      <label for="bubble">Bubble</label>
+      <input type="radio" name="algorithm" id="heap">
+      <label for="heap">Heap</label>
+      <input type="radio" name="algorithm" id="merge">
+      <label for="merge">Merge</label>
+      <input type="radio" name="algorithm" id="quick">
+      <label for="quick">Quick</label>
+    </form>
     <button id="sort">Sort</button>
   </nav>
   <div class="main">

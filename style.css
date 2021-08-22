@@ -1,20 +1,23 @@
-body{
+body {
   padding: 0;
   margin: 0;
   background: #FDEFEF;
   color: #fff;
   font-size: 1.5rem;
 }
-nav{
+
+nav {
   height: 10vh;
+  width: 98vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #082032;
-  padding: 0 3rem;
+  padding: 0 1vw;
 }
-button{
-  font-family: Satoshi;
+
+button {
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   background: none;
   color: #fff;
@@ -23,14 +26,32 @@ button{
   margin: 0 10px;
   cursor: pointer;
 }
-.main{
+
+.main {
   display: flex;
   justify-content: center;
 }
-.el{
+
+.el {
   background: #3498db;
   margin: 0 .1vw;
 }
-.targeted{
+
+.targeted {
   background: #FF4C29 !important;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+input[type="radio"]:checked+label {
+  font-weight: bold;
+  text-transform: uppercase;
 }
