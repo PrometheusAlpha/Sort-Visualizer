@@ -1,6 +1,7 @@
 import * as helpers from "../helpers.js"
 
 export const bubbleSort = async (arr, timeDelay) => {
+
   let n = arr.length;
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n - i - 1; j++) {
@@ -16,6 +17,6 @@ export const bubbleSort = async (arr, timeDelay) => {
       }
     }
     // clear highlighted index
-    helpers.drawCols(arr, -1);
   }
+  helpers.drawCols(arr, -1);
 }

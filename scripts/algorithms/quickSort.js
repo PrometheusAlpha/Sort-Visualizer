@@ -12,7 +12,7 @@ const partition = async (arr, low, high, timeDelay) => {
   for (let j = low; j <= high - 1; j++) {
     // If current element is smaller than the pivot
     if (arr[j] < pivot) {
-      modules.drawCols(arr, high);
+      helpers.drawCols(arr, j);
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
@@ -31,7 +31,11 @@ export const quickSort = async (arr, low, high, timeDelay) => {
     /* pi is partitioning index, arr[p] is now
     at right place */
     let pi = await partition(arr, low, high);
-
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        resolve();
+      }, timeDelay)
+    );
     await quickSort(arr, low, pi - 1, timeDelay);
     await quickSort(arr, pi + 1, high, timeDelay);
   }

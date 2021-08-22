@@ -2,7 +2,6 @@ import * as helpers from "../helpers.js";
 
 
 export const mergeSort = async (arr, l, r, timeDelay) => {
-  document.querySelector("button").disabled = true;
   if (l >= r) {
     return;//returns recursively
   }
@@ -10,7 +9,6 @@ export const mergeSort = async (arr, l, r, timeDelay) => {
   await mergeSort(arr, l, m, timeDelay);
   await mergeSort(arr, m + 1, r, timeDelay);
   await merge(arr, l, m, r, timeDelay);
-  document.querySelector("button").disabled = false;
 }
 
 const insert_and_delete = (arr, value, pos, left, right) => {
