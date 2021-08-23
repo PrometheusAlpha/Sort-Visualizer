@@ -2,9 +2,9 @@ import * as helpers from "../helpers.js";
 
 export const mergeSort = async (arr, l, r, timeDelay) => {
   if (l >= r) {
-    return;//returns recursively
+    return;
   }
-  var m = l + Math.floor((r - l) / 2);
+  let m = l + Math.floor((r - l) / 2);
   await mergeSort(arr, l, m, timeDelay);
   await mergeSort(arr, m + 1, r, timeDelay);
   await merge(arr, l, m, r, timeDelay);
@@ -21,29 +21,29 @@ const insert_and_delete = (arr, value, pos, left, right) => {
 }
 
 const merge = async (arr, l, m, r, timeDelay) => {
-  var n1 = m - l + 1;
-  var n2 = r - m;
+  let n1 = m - l + 1;
+  let n2 = r - m;
 
   // Create temp arrays
-  var L = new Array(n1);
-  var R = new Array(n2);
+  let L = new Array(n1);
+  let R = new Array(n2);
 
   // Copy data to temp arrays L[] and R[]
-  for (var i = 0; i < n1; i++) {
+  for (let i = 0; i < n1; i++) {
     L[i] = arr[l + i];
   }
-  for (var j = 0; j < n2; j++) {
+  for (let j = 0; j < n2; j++) {
     R[j] = arr[m + 1 + j];
   }
 
   // Merge the temp arrays back into arr[l..r]
 
   // Initial index of first subarray
-  var i = 0;
+  let i = 0;
   // Initial index of second subarray
-  var j = 0;
+  let j = 0;
   // Initial index of merged subarray
-  var k = l;
+  let k = l;
 
   while (i < n1 && j < n2) {
     await new Promise((resolve) =>
@@ -72,8 +72,8 @@ const merge = async (arr, l, m, r, timeDelay) => {
         resolve();
       }, timeDelay)
     );
-    helpers.drawCols(arr, k);
     insert_and_delete(arr, L[i], k, l, r);
+    helpers.drawCols(arr, k);
     i++;
     k++;
   }
@@ -86,8 +86,8 @@ const merge = async (arr, l, m, r, timeDelay) => {
         resolve();
       }, timeDelay)
     );
-    helpers.drawCols(arr, k);
     insert_and_delete(arr, R[j], k, l, r);
+    helpers.drawCols(arr, k);
     j++;
     k++;
   }

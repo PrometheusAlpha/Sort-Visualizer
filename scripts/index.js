@@ -27,9 +27,8 @@ document.querySelector("#sort").onclick = async () => {
     () => mergeSort(arr, 0, arr.length - 1, timeDelay),
     () => quickSort(arr, 0, arr.length - 1, timeDelay),
   ];
-
   let algorithm_to_use = algorithm_options[helpers.set_algorithm()];
-  
+
   document.querySelectorAll("button, input").forEach(i => i.disabled = true);
   await algorithm_to_use();
   document.querySelectorAll("button, input").forEach(i => i.disabled = false);
