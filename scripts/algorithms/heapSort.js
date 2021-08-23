@@ -2,7 +2,7 @@ import * as helpers from "../helpers.js"
 
 // To heapify a subtree rooted with node i which is
 // an index in arr[]. n is size of heap
-const heapify = (arr, n, i) => {
+const heapify = async (arr, n, i, timeDelay) => {
   var largest = i; // Initialize largest as root
   var l = 2 * i + 1; // left = 2*i + 1
   var r = 2 * i + 2; // right = 2*i + 2
@@ -21,8 +21,16 @@ const heapify = (arr, n, i) => {
     arr[i] = arr[largest];
     arr[largest] = swap;
 
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        resolve();
+      }, timeDelay)
+    );
+
+    helpers.drawCols(arr, i);
+
     // Recursively heapify the affected sub-tree
-    heapify(arr, n, largest);
+    await heapify(arr, n, largest);
   }
 }
 
@@ -32,7 +40,7 @@ export const heapSort = async (arr, timeDelay) => {
 
   // Build heap (rearrange array)
   for (var i = Math.floor(n / 2) - 1; i >= 0; i--) {
-    heapify(arr, n, i);
+    await heapify(arr, n, i, timeDelay);
   }
 
   // One by one extract an element from heap
@@ -48,9 +56,7 @@ export const heapSort = async (arr, timeDelay) => {
       }, timeDelay)
     );
 
-    helpers.drawCols(arr, i);
-
-    heapify(arr, i, 0);
+    await heapify(arr, i, 0, timeDelay);
   }
   helpers.drawCols(arr, -1);
 }

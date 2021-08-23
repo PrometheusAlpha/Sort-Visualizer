@@ -1,6 +1,5 @@
 import * as helpers from "../helpers.js";
 
-
 export const mergeSort = async (arr, l, r, timeDelay) => {
   if (l >= r) {
     return;//returns recursively
@@ -41,10 +40,8 @@ const merge = async (arr, l, m, r, timeDelay) => {
 
   // Initial index of first subarray
   var i = 0;
-
   // Initial index of second subarray
   var j = 0;
-
   // Initial index of merged subarray
   var k = l;
 
@@ -57,12 +54,10 @@ const merge = async (arr, l, m, r, timeDelay) => {
 
     if (L[i] <= R[j]) {
       insert_and_delete(arr, L[i], k, l, r);
-      // arr[k] = L[i];
       i++;
     }
     else {
       insert_and_delete(arr, R[j], k, l, r);
-      // arr[k] = R[j];
       j++;
     }
     helpers.drawCols(arr, k);
@@ -79,8 +74,6 @@ const merge = async (arr, l, m, r, timeDelay) => {
     );
     helpers.drawCols(arr, k);
     insert_and_delete(arr, L[i], k, l, r);
-
-    // arr[k] = L[i];
     i++;
     k++;
   }
@@ -95,8 +88,6 @@ const merge = async (arr, l, m, r, timeDelay) => {
     );
     helpers.drawCols(arr, k);
     insert_and_delete(arr, R[j], k, l, r);
-
-    // arr[k] = R[j];
     j++;
     k++;
   }

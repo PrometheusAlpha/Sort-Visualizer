@@ -19,12 +19,6 @@ document.querySelector("#num_of_cols").oninput = resetCols;
 window.addEventListener('DOMContentLoaded', resetCols);
 document.querySelector("#generate").onclick = resetCols;
 
-// document.querySelector("#sort").onclick = bubbleSort;
-
-// document.querySelector("#sort").onclick = heapSort;
-
-// document.querySelector("#sort").onclick = () => quickSort2(arr, 0, arr.length - 1);
-
 document.querySelector("#sort").onclick = async () => {
   let timeDelay = 200 - parseInt(document.querySelector("#speed").value);
   let algorithm_options = [
@@ -35,6 +29,7 @@ document.querySelector("#sort").onclick = async () => {
   ];
 
   let algorithm_to_use = algorithm_options[helpers.set_algorithm()];
+  
   document.querySelectorAll("button, input").forEach(i => i.disabled = true);
   await algorithm_to_use();
   document.querySelectorAll("button, input").forEach(i => i.disabled = false);
