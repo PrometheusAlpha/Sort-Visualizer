@@ -6,8 +6,10 @@ body {
   color: #fff;
   font-family: 'Inter', sans-serif;
 }
-*{
+
+* {
   box-sizing: border-box;
+  font-weight: 500;
 }
 
 /* end body part */
@@ -23,7 +25,6 @@ nav {
 
 button {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
   background: none;
   color: #fff;
   font-size: 1.5rem;
@@ -45,9 +46,9 @@ label {
 }
 
 input[type="radio"]:checked+label {
-  font-weight: bold;
-  text-transform: uppercase;
+  color: #3498db;
 }
+
 /* end algorithm selection */
 
 /* columns part */
@@ -59,6 +60,9 @@ input[type="radio"]:checked+label {
 .el {
   background: #3498db;
   margin: 0 .1vw;
+  color: #082032;
+  font-size: 1vw;
+  overflow: hidden;
 }
 
 .targeted {

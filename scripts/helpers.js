@@ -1,22 +1,27 @@
 export const generateRandArr = (num) => {
   let arr = [];
   for (let i = 0; i < num; i++) {
-    arr.push(Math.floor(1 + Math.random() * 89));
+    arr.push(Math.floor(12 + Math.random() * 168) / 2);
   }
   return arr;
 }
 
 export const drawCols = (arr, colored_col_index) => {
   let main = document.querySelector(".main");
+  let isSmallNumberOfCols = arr.length <= 25;
   main.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     let col = document.createElement("div");
+    if (isSmallNumberOfCols) {
+      col.innerHTML = arr[i] * 2;
+      col.style.textAlign = "center";
+    }
     col.classList.add("el");
     if (i === colored_col_index) {
       col.classList.add("targeted");
     }
     col.style.height = arr[i] + "vh";
-    col.style.width = 40 / arr.length + "vw";
+    col.style.width = 60 / arr.length + "vw";
     main.appendChild(col);
   }
 }

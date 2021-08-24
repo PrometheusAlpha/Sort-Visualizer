@@ -48,20 +48,20 @@ const merge = async (arr, l, m, r, timeDelay) => {
   while (i < n1 && j < n2) {
     await new Promise((resolve) =>
       setTimeout(() => {
+        if (L[i] <= R[j]) {
+          insert_and_delete(arr, L[i], k, l, r);
+          i++;
+        }
+        else {
+          insert_and_delete(arr, R[j], k, l, r);
+          j++;
+        }
+        helpers.drawCols(arr, k);
+        k++;
         resolve();
       }, timeDelay)
     );
 
-    if (L[i] <= R[j]) {
-      insert_and_delete(arr, L[i], k, l, r);
-      i++;
-    }
-    else {
-      insert_and_delete(arr, R[j], k, l, r);
-      j++;
-    }
-    helpers.drawCols(arr, k);
-    k++;
   }
 
   // Copy the remaining elements of
