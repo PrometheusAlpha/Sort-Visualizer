@@ -13,7 +13,6 @@ const resetCols = () => {
   helpers.drawCols(arr, -1);
 }
 
-
 // 2. Event handler part
 document.querySelector("#num_of_cols").oninput = resetCols;
 window.addEventListener('DOMContentLoaded', resetCols);

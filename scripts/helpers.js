@@ -1,7 +1,7 @@
 export const generateRandArr = (num) => {
   let arr = [];
   for (let i = 0; i < num; i++) {
-    arr.push(Math.floor(12 + Math.random() * 168) / 2);
+    arr.push(Math.floor(12 + Math.random() * 165) / 2);
   }
   return arr;
 }

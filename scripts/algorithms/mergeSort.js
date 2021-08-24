@@ -37,7 +37,6 @@ const merge = async (arr, l, m, r, timeDelay) => {
   }
 
   // Merge the temp arrays back into arr[l..r]
-
   // Initial index of first subarray
   let i = 0;
   // Initial index of second subarray
@@ -46,18 +45,18 @@ const merge = async (arr, l, m, r, timeDelay) => {
   let k = l;
 
   while (i < n1 && j < n2) {
+    if (L[i] <= R[j]) {
+      insert_and_delete(arr, L[i], k, l, r);
+      i++;
+    }
+    else {
+      insert_and_delete(arr, R[j], k, l, r);
+      j++;
+    }
+    helpers.drawCols(arr, k);
+    k++;
     await new Promise((resolve) =>
       setTimeout(() => {
-        if (L[i] <= R[j]) {
-          insert_and_delete(arr, L[i], k, l, r);
-          i++;
-        }
-        else {
-          insert_and_delete(arr, R[j], k, l, r);
-          j++;
-        }
-        helpers.drawCols(arr, k);
-        k++;
         resolve();
       }, timeDelay)
     );

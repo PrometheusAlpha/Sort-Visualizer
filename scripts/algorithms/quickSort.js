@@ -7,7 +7,8 @@ to left of pivot and all greater elements to right
 of pivot */
 const partition = async (arr, low, high, timeDelay) => {
   let pivot = arr[high]; // pivot
-  let i = low - 1; // Start index of smaller elements and indicates the right position of pivot found so far
+  // Start index of smaller elements and indicates the right position of pivot found so far
+  let i = low - 1;
 
   for (let j = low; j <= high - 1; j++) {
     // If current element is smaller than the pivot

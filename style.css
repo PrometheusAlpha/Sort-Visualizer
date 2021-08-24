@@ -29,7 +29,6 @@ button {
   color: #fff;
   font-size: 1.5rem;
   border: none;
-  margin: 0 10px;
   cursor: pointer;
 }
 
@@ -40,21 +39,22 @@ input[type="radio"] {
 }
 
 label {
-  position: relative;
   cursor: pointer;
   margin: 0 1rem;
 }
 
 input[type="radio"]:checked+label {
-  color: #3498db;
+  color: #FF4C29;
 }
 
 /* end algorithm selection */
 
 /* columns part */
 .main {
+  height: 90vh;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
 .el {
