@@ -27,7 +27,7 @@ button {
   font-family: 'Inter', sans-serif;
   background: none;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
 }
@@ -63,6 +63,7 @@ input[type="radio"]:checked+label {
   color: #082032;
   font-size: 1vw;
   overflow: hidden;
+  text-align: center;
 }
 
 .targeted {

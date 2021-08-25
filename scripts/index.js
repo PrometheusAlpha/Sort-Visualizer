@@ -4,21 +4,24 @@ import { heapSort } from "./algorithms/heapSort.js";
 import { bubbleSort } from "./algorithms/bubbleSort.js";
 import * as helpers from "./helpers.js"
 
-var arr;
+let arr;
+let isSorting = false;
 
 // 1. Functions part
 const resetCols = () => {
+  if (isSorting) {
+    return;
+  }
   let number_of_els = document.querySelector("#num_of_cols").value;
   arr = helpers.generateRandArr(number_of_els);
   helpers.drawCols(arr, -1);
 }
 
-// 2. Event handler part
-document.querySelector("#num_of_cols").oninput = resetCols;
-window.addEventListener('DOMContentLoaded', resetCols);
-document.querySelector("#generate").onclick = resetCols;
-
-document.querySelector("#sort").onclick = async () => {
+const sorter = async () => {
+  if (isSorting) {
+    return;
+  }
+  isSorting = true;
   let timeDelay = 200 - parseInt(document.querySelector("#speed").value);
   let algorithm_options = [
     () => bubbleSort(arr, timeDelay),
@@ -28,9 +31,28 @@ document.querySelector("#sort").onclick = async () => {
   ];
   let algorithm_to_use = algorithm_options[helpers.set_algorithm()];
 
-  document.querySelectorAll("button, input").forEach(i => i.disabled = true);
   await algorithm_to_use();
-  document.querySelectorAll("button, input").forEach(i => i.disabled = false);
 
   helpers.drawCols(arr, -1);
+  isSorting = false;
 };
+
+
+// 2. Event handler part
+document.querySelector("#num_of_cols").oninput = resetCols;
+window.addEventListener('DOMContentLoaded', resetCols);
+document.querySelector("#generate").onclick = resetCols;
+
+// keypress listener
+document.addEventListener('keydown', (event) => {
+  let x = event.key;
+  console.log(x);
+  if (x === "G" || x === "g") {
+    resetCols();
+  }
+  if (x === "S" || x === "s") {
+    sorter();
+  }
+});
+
+document.querySelector("#sort").onclick = sorter;

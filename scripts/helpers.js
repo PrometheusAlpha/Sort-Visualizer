@@ -14,7 +14,6 @@ export const drawCols = (arr, colored_col_index) => {
     let col = document.createElement("div");
     if (isSmallNumberOfCols) {
       col.innerHTML = arr[i] * 2;
-      col.style.textAlign = "center";
     }
     col.classList.add("el");
     if (i === colored_col_index) {
