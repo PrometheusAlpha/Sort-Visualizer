@@ -17,7 +17,7 @@ const resetCols = () => {
   helpers.drawCols(arr, -1);
 }
 
-const sorter = async () => {
+const activate_sort = async () => {
   if (isSorting) {
     return;
   }
@@ -42,17 +42,15 @@ const sorter = async () => {
 document.querySelector("#num_of_cols").oninput = resetCols;
 window.addEventListener('DOMContentLoaded', resetCols);
 document.querySelector("#generate").onclick = resetCols;
+document.querySelector("#sort").onclick = activate_sort;
 
 // keypress listener
 document.addEventListener('keydown', (event) => {
   let x = event.key;
-  console.log(x);
   if (x === "G" || x === "g") {
     resetCols();
   }
   if (x === "S" || x === "s") {
-    sorter();
+    activate_sort();
   }
 });
-
-document.querySelector("#sort").onclick = sorter;

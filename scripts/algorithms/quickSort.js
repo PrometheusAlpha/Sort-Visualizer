@@ -27,8 +27,7 @@ const partition = async (arr, low, high, timeDelay) => {
 
 export const quickSort = async (arr, low, high, timeDelay) => {
   if (low < high) {
-    /* pi is partitioning index, arr[p] is now
-    at right place */
+    /* pi is partitioning index, arr[p] is now at right place */
     let pi = await partition(arr, low, high);
     await new Promise((resolve) =>
       setTimeout(() => resolve(), timeDelay)
