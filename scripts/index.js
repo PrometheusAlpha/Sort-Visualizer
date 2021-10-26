@@ -22,7 +22,7 @@ const activate_sort = async () => {
     return;
   }
   isSorting = true;
-  let timeDelay = 200 - parseInt(document.querySelector("#speed").value);
+  let timeDelay = 300 - parseInt(document.querySelector("#speed").value);
   let algorithm_options = [
     () => bubbleSort(arr, timeDelay),
     () => heapSort(arr, timeDelay),
